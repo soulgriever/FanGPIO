@@ -12,6 +12,6 @@ echo Compiling FanGPIO
 gcc -Wall -o FanGPIO FanGPIO.c -lwiringPi
 echo FanGPIO Compiled
 echo adding FanGPIO to startup
-echo "sudo /home/pi/.FanGPIO/FanGPIO" >> /etc/rc.local
+sed -i -e '$i \sudo /home/pi/.FanGPIO/FanGPIO\n' /etc/rc.local
 rm /home/pi/.FanGPIO/FanGPIO.c
 echo "FINISHED reboot for changes to take effect"
