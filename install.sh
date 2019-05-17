@@ -11,7 +11,9 @@ cd ..
 echo Compiling FanGPIO
 gcc -Wall -o FanGPIO FanGPIO.c -lwiringPi
 echo FanGPIO Compiled
-echo adding FanGPIO to startup
-sed -i -e '$i \sudo /home/pi/.FanGPIO/FanGPIO\n' /etc/rc.local
+echo adding FanGPIO to systemd service
+cp FanGPIO.service /etc/systemd/system/FanGPIO.service
+echo starting FanGPIO service
+systemctl enable FanGPIO.service
 rm /home/pi/.FanGPIO/FanGPIO.c
 echo "FINISHED reboot for changes to take effect"
