@@ -12,7 +12,7 @@ echo Compiling FanGPIO
 gcc -Wall -o FanGPIO FanGPIO.c -lwiringPi
 echo FanGPIO Compiled
 echo adding FanGPIO to systemd service
-cp FanGPIO.service /etc/systemd/system/FanGPIO.service
+cp /home/pi/FanGPIO/FanGPIO.service /etc/systemd/system/FanGPIO.service
 echo starting FanGPIO service
 systemctl enable FanGPIO.service
 rm /home/pi/.FanGPIO/FanGPIO.c
